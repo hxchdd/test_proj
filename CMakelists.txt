@@ -1,7 +1,10 @@
-
+# project name
 project(test_proj)
+
+# minimum version
 cmake_minimum_required(VERSION 3.19)
 
+# define build type
 if(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
     set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -Wall -O0")
     message("Debug mode:${CMAKE_C_FLAGS_DEBUG}")
@@ -15,10 +18,11 @@ else()
 endif()
 
 
-
+# add google test
 add_subdirectory(googletest-master)
 enable_testing()
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
+# add main test script
 add_subdirectory(unit_test)
 
