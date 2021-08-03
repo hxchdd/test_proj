@@ -9,11 +9,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh '''mkdir build
-cd build
-cmake ..
-cmake --build .
-'''
+        bat(script: ' mkdir build cd build cmake .. cmake --build .', returnStatus: true)
       }
     }
 
